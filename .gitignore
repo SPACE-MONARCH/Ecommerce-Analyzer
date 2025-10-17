@@ -1,4 +1,10 @@
-.gradle
+# ============================================
+# STOP B4U SHOP - E-Commerce Analyzer
+# Complete .gitignore Configuration
+# ============================================
+
+# Gradle
+.gradle/
 build/
 !gradle/wrapper/gradle-wrapper.jar
 !**/src/main/**/build/
@@ -6,10 +12,29 @@ build/
 .kotlin
 
 ### IntelliJ IDEA ###
+.idea/
 .idea/modules.xml
 .idea/jarRepositories.xml
 .idea/compiler.xml
 .idea/libraries/
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/usage.statistics.xml
+.idea/dictionaries
+.idea/shelf/
+.idea/aws.xml
+.idea/contentModel.xml
+.idea/dataSources/
+.idea/dataSources.ids
+.idea/dataSources.local.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/dbnavigator.xml
+.idea/gradle.xml
+.idea/misc.xml
+.idea/encodings.xml
+.idea/vcs.xml
 *.iws
 *.iml
 *.ipr
@@ -38,6 +63,136 @@ bin/
 
 ### VS Code ###
 .vscode/
+*.code-workspace
 
 ### Mac OS ###
 .DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### Windows ###
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+*.lnk
+
+### Linux ###
+*~
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# ============================================
+# PROJECT-SPECIFIC FILES
+# ============================================
+
+### Sensitive Configuration Files ###
+# IMPORTANT: Never commit API keys or passwords!
+src/main/resources/application.properties
+src/main/resources/config.properties
+application.properties
+config.properties
+*.env
+.env
+.env.local
+.env.*.local
+
+### Database Files ###
+*.db
+*.sqlite
+*.sqlite3
+*.sql.backup
+*.sql.gz
+
+### Logs ###
+*.log
+logs/
+log/
+*.log.*
+*.log.gz
+
+### Temporary Files ###
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+*.bak
+*.backup
+*.orig
+
+### Compiled Output ###
+*.class
+*.jar
+!gradle/wrapper/gradle-wrapper.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+### Package Files ###
+*.7z
+*.dmg
+*.gz
+*.iso
+*.tar
+*.tgz
+
+### JavaFX Build ###
+javafx-sdk-*/
+javafx-*/
+
+### Test Coverage ###
+.coverage
+coverage/
+*.cover
+.hypothesis/
+.pytest_cache/
+
+### Generated Documentation ###
+/docs/javadoc/
+/docs/api/
+
+### Cache ###
+.cache/
+*.cache
+
+# ============================================
+# KEEP THESE FILES
+# ============================================
+
+# Keep example configuration
+!src/main/resources/application.properties.example
+
+# Keep wrapper JAR
+!gradle/wrapper/gradle-wrapper.jar
+
+# Keep documentation
+!docs/
+!README.md
+!LICENSE
