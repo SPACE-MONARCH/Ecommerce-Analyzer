@@ -71,6 +71,6 @@ public class ConfigManager {
      * @return Theme name (light/dark)
      */
     public static String getTheme() {
-        return properties.getProperty("app.theme", "light");
+        return properties.getProperty("app.theme", "dark");
     }
 }

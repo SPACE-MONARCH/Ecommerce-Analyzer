@@ -247,12 +247,6 @@
     -fx-font-size: 12px;
 }
 
-/* First column (Attribute) styling */
-.comparison-table .table-cell:first-child {
-    -fx-text-fill: #a78bfa;
-    -fx-font-weight: bold;
-}
-
 /* Table Buy Button */
 .table-buy-button {
     -fx-background-color: linear-gradient(to right, #ec4899, #8b5cf6);
