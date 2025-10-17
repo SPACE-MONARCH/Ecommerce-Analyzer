@@ -92,7 +92,13 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Monty Milan Biswal**
 - GitHub: [@SPACE-MONARCH](https://github.com/SPACE-MONARCH)
-
+**Joel Chacko**
+- GitHub: [@YET1-2006](https://github.com/YET1-2006)
+**Anushka Verma**
+- Github: [@anusshhkkaaa](https://github.com/anusshhkkaaa)
+- LinkedIN: (https://www.linkedin.com/in/anushka-verma-607557350?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)
+**Nishtha Agarwal**
+- Github: [@nishthaagarwal2503-dot](https://github.com/nishthaagarwal2503-dot)
 
 
 ## 🙏 Acknowledgments
