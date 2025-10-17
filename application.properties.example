@@ -7,5 +7,5 @@ db.username=postgres
 db.password=YOUR_DATABASE_PASSWORD
 
 # Application Settings
-app.name=STOP B4U SHOP
+app.name=PRICE VERSE
 app.version=1.0

@@ -12,8 +12,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 /**
- * Main Application Class
- * Entry point for the E-commerce Product Analyzer
+ * PRICE VERSE - Main Application Class
+ * Entry point for the E-commerce Product Comparison Analyzer
  */
 public class Main extends Application {
 
@@ -48,7 +48,7 @@ public class Main extends Application {
             ThemeManager.applyTheme(scene, initialTheme);
 
             // Setup stage
-            primaryStage.setTitle("STOP B4U SHOP - Product Comparison Analyzer");
+            primaryStage.setTitle("PRICE VERSE - Product Comparison Analyzer");  // UPDATED
             primaryStage.setScene(scene);
             primaryStage.setMinWidth(1200);
             primaryStage.setMinHeight(700);
@@ -62,7 +62,7 @@ public class Main extends Application {
 
             // Handle window close
             primaryStage.setOnCloseRequest(event -> {
-                System.out.println("Shutting down application...");
+                System.out.println("Shutting down PRICE VERSE...");  // UPDATED
                 if (controller != null) {
                     controller.shutdown();
                 }
@@ -70,12 +70,12 @@ public class Main extends Application {
             });
 
             primaryStage.show();
-            System.out.println("✓ Application started successfully!");
+            System.out.println("✓ PRICE VERSE started successfully!");  // UPDATED
 
         } catch (Exception e) {
             e.printStackTrace();
             showErrorAndExit("Application Error",
-                    "Failed to start application: " + e.getMessage());
+                    "Failed to start PRICE VERSE: " + e.getMessage());  // UPDATED
         }
     }
 
@@ -97,7 +97,8 @@ public class Main extends Application {
      */
     public static void main(String[] args) {
         System.out.println("========================================");
-        System.out.println("E-commerce Product Analyzer");
+        System.out.println("       PRICE VERSE v1.0");              // UPDATED
+        System.out.println("  Product Comparison Analyzer");        // UPDATED
         System.out.println("========================================");
         launch(args);
     }

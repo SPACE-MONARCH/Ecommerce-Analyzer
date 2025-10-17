@@ -22,7 +22,7 @@
             <Button fx:id="toggleLeftSidebar" text="☰" styleClass="icon-button, toggle-btn"/>
 
             <!-- Logo/Title -->
-            <Label text="STOP B4U SHOP" styleClass="app-logo">
+            <Label text="PRICE VERSE" styleClass="app-logo">
                 <font>
                     <Font name="System Bold" size="24"/>
                 </font>
@@ -185,7 +185,7 @@
             <Label text="Status:" styleClass="status-label-text"/>
             <Label fx:id="statusLabel" text="Ready" styleClass="status-value"/>
             <Region HBox.hgrow="ALWAYS"/>
-            <Label text="STOP B4U SHOP v1.0" styleClass="version-label"/>
+            <Label text="PRICE VERSE v1.0" styleClass="version-label"/>
         </HBox>
     </bottom>
 
