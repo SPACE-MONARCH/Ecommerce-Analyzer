@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.ecommerce.analyzer.controller.MainController"
+            styleClass="root">
+
+    <!-- Top Navigation Bar -->
+    <top>
+        <HBox alignment="CENTER_LEFT" styleClass="top-navbar" spacing="20">
+            <padding>
+                <Insets top="15" right="25" bottom="15" left="25"/>
+            </padding>
+
+            <!-- Sidebar Toggle Left -->
+            <Button fx:id="toggleLeftSidebar" text="☰" styleClass="icon-button, toggle-btn"/>
+
+            <!-- Logo/Title -->
+            <Label text="STOP B4U SHOP" styleClass="app-logo">
+                <font>
+                    <Font name="System Bold" size="24"/>
+                </font>
+            </Label>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Search Bar -->
+            <HBox alignment="CENTER" spacing="10" styleClass="search-container">
+                <TextField fx:id="searchField" promptText="Search products or paste URL..."
+                           styleClass="modern-search" prefWidth="400"/>
+                <Button fx:id="searchButton" text="🔍" styleClass="icon-button"/>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS"/>
+
+            <!-- Action Buttons -->
+            <Button fx:id="addUrlButton" text="+ Add URL" styleClass="icon-button, add-btn"/>
+            <Button fx:id="refreshButton" text="↻" styleClass="icon-button, refresh-btn"/>
+            <ToggleButton fx:id="themeToggle" text="☀" styleClass="icon-button, theme-btn"/>
+
+            <!-- Sidebar Toggle Right -->
+            <Button fx:id="toggleRightSidebar" text="≡" styleClass="icon-button, toggle-btn"/>
+        </HBox>
+    </top>
+
+    <!-- Main Content with Sidebars -->
+    <center>
+        <HBox styleClass="main-container">
+            <!-- Left Sidebar (Collapsible) -->
+            <VBox fx:id="leftSidebar" styleClass="left-sidebar" prefWidth="240" spacing="10">
+                <padding>
+                    <Insets top="20" right="15" bottom="20" left="15"/>
+                </padding>
+
+                <Label text="Platform Filters" styleClass="sidebar-title">
+                    <font>
+                        <Font name="System Bold" size="14"/>
+                    </font>
+                </Label>
+
+                <Separator/>
+
+                <!-- Platform Checkboxes -->
+                <VBox spacing="12" styleClass="filter-group">
+                    <CheckBox fx:id="amazonCheck" text="Amazon" selected="true" styleClass="platform-checkbox"/>
+                    <CheckBox fx:id="flipkartCheck" text="Flipkart" selected="true" styleClass="platform-checkbox"/>
+                    <CheckBox fx:id="myntraCheck" text="Myntra" selected="true" styleClass="platform-checkbox"/>
+                    <CheckBox fx:id="meeshoCheck" text="Meesho" selected="true" styleClass="platform-checkbox"/>
+                    <CheckBox fx:id="ajioCheck" text="Ajio" selected="true" styleClass="platform-checkbox"/>
+                    <CheckBox fx:id="snapdealCheck" text="Snapdeal" selected="true" styleClass="platform-checkbox"/>
+                </VBox>
+
+                <Separator/>
+
+                <Label text="Quick Actions" styleClass="sidebar-title">
+                    <font>
+                        <Font name="System Bold" size="14"/>
+                    </font>
+                </Label>
+
+                <VBox spacing="10">
+                    <Button fx:id="exportPdfButton" text="📄 Export PDF" styleClass="sidebar-button"/>
+                    <Button fx:id="exportExcelButton" text="📊 Export Excel" styleClass="sidebar-button"/>
+                </VBox>
+            </VBox>
+
+            <!-- Main Content Area -->
+            <VBox HBox.hgrow="ALWAYS" spacing="20" styleClass="content-area">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20"/>
+                </padding>
+
+                <!-- Quick Insights Section -->
+                <HBox spacing="15" styleClass="insights-row">
+                    <!-- Best Price Card -->
+                    <VBox styleClass="insight-card" HBox.hgrow="ALWAYS" spacing="8">
+                        <Label text="💰 Best Price" styleClass="insight-card-title"/>
+                        <Label fx:id="bestPriceLabel" text="N/A" styleClass="insight-card-value"/>
+                    </VBox>
+
+                    <!-- Best Rating Card -->
+                    <VBox styleClass="insight-card" HBox.hgrow="ALWAYS" spacing="8">
+                        <Label text="⭐ Top Rated" styleClass="insight-card-title"/>
+                        <Label fx:id="bestRatingLabel" text="N/A" styleClass="insight-card-value"/>
+                    </VBox>
+
+                    <!-- Fastest Delivery Card -->
+                    <VBox styleClass="insight-card" HBox.hgrow="ALWAYS" spacing="8">
+                        <Label text="🚚 Fastest Delivery" styleClass="insight-card-title"/>
+                        <Label fx:id="fastestDeliveryLabel" text="N/A" styleClass="insight-card-value"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Product Comparison Table -->
+                <VBox spacing="10" VBox.vgrow="ALWAYS" styleClass="comparison-section">
+                    <Label text="Product Comparison" styleClass="section-header">
+                        <font>
+                            <Font name="System Bold" size="18"/>
+                        </font>
+                    </Label>
+
+                    <TableView fx:id="comparisonTable" VBox.vgrow="ALWAYS" styleClass="comparison-table">
+                        <columns>
+                            <TableColumn fx:id="attributeColumn" text="Attribute" prefWidth="150"
+                                         sortable="false" resizable="false"/>
+                        </columns>
+                    </TableView>
+                </VBox>
+            </VBox>
+
+            <!-- Right Sidebar (Collapsible) -->
+            <VBox fx:id="rightSidebar" styleClass="right-sidebar" prefWidth="350" spacing="15">
+                <padding>
+                    <Insets top="20" right="15" bottom="20" left="15"/>
+                </padding>
+
+                <!-- Price Trend Chart -->
+                <VBox styleClass="chart-card" VBox.vgrow="ALWAYS" spacing="10">
+                    <Label text="Price Trends (30 Days)" styleClass="sidebar-title">
+                        <font>
+                            <Font name="System Bold" size="14"/>
+                        </font>
+                    </Label>
+                    <LineChart fx:id="priceChart" VBox.vgrow="ALWAYS"
+                               styleClass="trend-chart" animated="true" legendVisible="true"
+                               prefHeight="250">
+                        <xAxis>
+                            <CategoryAxis label="Date" side="BOTTOM"/>
+                        </xAxis>
+                        <yAxis>
+                            <NumberAxis label="Price (₹)" side="LEFT"/>
+                        </yAxis>
+                    </LineChart>
+                </VBox>
+
+                <!-- AI Recommendation Card -->
+                <VBox styleClass="ai-card" VBox.vgrow="ALWAYS" spacing="10">
+                    <Label text="🤖 AI Recommendation" styleClass="sidebar-title">
+                        <font>
+                            <Font name="System Bold" size="14"/>
+                        </font>
+                    </Label>
+                    <TextArea fx:id="aiRecommendationArea"
+                              promptText="AI analysis will appear here..."
+                              wrapText="true" editable="false"
+                              styleClass="ai-text" VBox.vgrow="ALWAYS"
+                              prefHeight="200"/>
+                </VBox>
+            </VBox>
+        </HBox>
+    </center>
+
+    <!-- Bottom Status Bar -->
+    <bottom>
+        <HBox alignment="CENTER_LEFT" styleClass="status-bar" spacing="10">
+            <padding>
+                <Insets top="10" right="20" bottom="10" left="20"/>
+            </padding>
+            <Label text="Status:" styleClass="status-label-text"/>
+            <Label fx:id="statusLabel" text="Ready" styleClass="status-value"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Label text="STOP B4U SHOP v1.0" styleClass="version-label"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

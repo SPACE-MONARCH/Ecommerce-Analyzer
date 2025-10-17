@@ -1,0 +1,92 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+}
+
+group = 'com.ecomm'
+version = '1.0-SNAPSHOT'
+
+sourceCompatibility = '17'
+targetCompatibility = '17'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+repositories {
+    mavenCentral()
+}
+
+javafx {
+    version = "17.0.2"
+    modules = ['javafx.controls', 'javafx.fxml', 'javafx.web']
+}
+
+dependencies {
+    // PostgreSQL JDBC Driver
+    implementation 'org.postgresql:postgresql:42.7.1'
+
+    // Jsoup for web scraping
+    implementation 'org.jsoup:jsoup:1.17.2'
+
+    // HtmlUnit for JavaScript-enabled scraping - CORRECTED
+    implementation 'org.htmlunit:htmlunit:4.17.0'
+
+    // Selenium WebDriver for browser automation
+    implementation 'org.seleniumhq.selenium:selenium-java:4.25.0'
+
+    // WebDriverManager - Auto-downloads ChromeDriver
+    implementation 'io.github.bonigarcia:webdrivermanager:5.9.2'
+
+    // Apache POI for Excel export
+    implementation 'org.apache.poi:poi:5.2.5'
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+
+    // Apache PDFBox for PDF export
+    implementation 'org.apache.pdfbox:pdfbox:3.0.1'
+
+    // Google Generative AI (Gemini)
+    implementation 'com.google.code.gson:gson:2.10.1'
+    implementation 'com.squareup.okhttp3:okhttp:4.12.0'
+
+    // JSON processing
+    implementation 'org.json:json:20231013'
+
+    // Logging
+    implementation 'org.slf4j:slf4j-api:2.0.9'
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+
+    // Testing
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+application {
+    mainClass = 'com.ecommerce.analyzer.Main'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+tasks.named('run') {
+    doFirst {
+        jvmArgs = [
+                '--module-path', classpath.asPath,
+                '--add-modules', 'javafx.controls,javafx.fxml,javafx.web'
+        ]
+    }
+}
+
+task runTest(type: JavaExec) {
+    group = 'application'
+    description = 'Run web scraper tests (HtmlUnit + Selenium)'
+
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.ecommerce.analyzer.TestScrapers'
+
+    standardInput = System.in
+    standardOutput = System.out
+    errorOutput = System.err
+}
