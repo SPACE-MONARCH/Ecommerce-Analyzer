@@ -1,4 +1,4 @@
-# 🛒 STOP B4U SHOP - E-Commerce Product Comparison Analyzer
+# 🛒 PRICE VERSE - E-Commerce Product Comparison Analyzer
 
 A powerful JavaFX desktop application that compares product prices, ratings, and offers across multiple Indian e-commerce platforms using AI-powered web scraping.
 
